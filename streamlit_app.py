@@ -29,8 +29,9 @@ if ingredients_list:
         ingredients_string += fruit_chosen + " "
 
         # New section to display fruityvice nutrition information
+        st.subheader(fruit_chosen + "Nutrition Information")
         fruityvice_response = requests.get(
-            "https://fruityvice.com/api/fruit/watermelon", timeout=30
+            f"https://fruityvice.com/api/fruit/{fruit_chosen}", timeout=30
         )
         fv_dataframe = st.dataframe(
             data=fruityvice_response.json(), use_container_width=True
